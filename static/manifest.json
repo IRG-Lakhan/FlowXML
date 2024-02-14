@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Salesforce Flow Scanner",
+  "description": "This extension allows you to scan Salesforce flows in your org for against a set of best practices/rules and returns the results displaying the violations of the best practices. It also allows you to fix the some of those violations with a single click.",
+  "version": "0.1",
+  "action": {
+
+  },
+  "content_security_policy": {"extension_pages":"script-src 'self'; object-src 'self'"},
+  "host_permissions": [ "https://*.force.com/*", "https://*.salesforce.com/*" ],
+  "permissions": ["tabs", "activeTab","cookies"],  
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.force.com/builder_platform_interaction/flowBuilder.app*"
+      ],
+      "all_frames": true,
+      "css": [
+        "./assets/css/slds/salesforce-lightning-design-system.css",
+        "./assets/css/main.css"
+      ],
+      "js": [
+        "contentJs.bundle.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "contentJs.bundle.js",
+        "assets/icons/*/**"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "update_url": "https://clients2.google.com/service/update2/crx"
+
+}

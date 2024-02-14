@@ -1,0 +1,19 @@
+{
+  "name": "Salesforce Flow Scanner",
+  "description": "This extension allows you to scan Salesforce flows in your org for against a set of best practices/rules and returns the results displaying the violations of the best practices. It also allows you to fix the some of those violations with a single click.",
+  "version": "0.0.1",
+  "scripts": {
+    "build-lwr": "",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "jsforce": "^1.11.1",
+    "node-polyfill-webpack-plugin": "^3.0.0"
+  }
+}
